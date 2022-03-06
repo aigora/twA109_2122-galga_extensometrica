@@ -1,11 +1,14 @@
-# [Título del trabajo]
+# GALGA EXTENSIOMÉTRICA
 
-[Descripción breve del proyecto a realizar (2-3 frases).]
+Construcción de una galga extensiométrica. Este aparato mide la deformación o tensión de un objeto. Conociendo un factor de salida 
+del dispositivo creado por una deformación, podemos pasar el valor de deformación a medida de fuerzas
 
 ## Integrantes del equipo
 
-[Nombres, apellidos, y usuario GitHub de los integrantes del equipo.]
+ALEJANDRO PALOMO DE LA PEÑA (55393) 
+CRISTINA NAVARRO BADOS
+CARLOS MENDOZA CARPINTERO 
 
 ## Objetivos del trabajo
 
-[Lista de los objetivos que se persiguen con el trabajo propuesto.]
+Nuestro objetivo es calcular la fuerza medida sobre un objeto y despues pasarlo a peso
