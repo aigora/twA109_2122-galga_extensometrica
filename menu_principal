@@ -4,30 +4,35 @@ int main() {
 
 	int opcion;
 
-	printf("\t*******MENU*******\n");
-	printf("Introduce una opción\n");
-	printf("1-Medir la deformación\n");
-	printf("2-Medir el peso del objeto\n");
-	printf("3-Tara a cero\n");
-	printf("4-Salir del menu\n");
-	scanf_s("%d", &opcion);
+	do{
+		printf("\t*******MENU*******\n");
+		printf("Introduce una opción\n");
+		printf("1-Medir la deformación\n");
+		printf("2-Medir el peso del objeto\n");
+		printf("3-Tara a cero\n");
+		printf("4-Salir del menu\n");
+		scanf_s("%d", &opcion);
 
-	switch (opcion) {
+		switch (opcion) {
 
-		case 1:
+			case 1:
 
-			break;
+				break;
 
-		case 2:
+			case 2:
 
-			break;
+				break;
 
-		case 3:
+			case 3:
 
-			break;
+				break;
 
-		default:
-
+			default:
+			
+				break;
+				
+	}while(opcion!=4);
+	
 
 	}
 }
