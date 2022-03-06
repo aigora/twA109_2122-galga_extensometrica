@@ -6,7 +6,7 @@ del dispositivo creado por una deformación, podemos pasar el valor de deformaci
 ## Integrantes del equipo
 
 ALEJANDRO PALOMO DE LA PEÑA (55393) 
-CRISTINA NAVARRO BADOS
+CRISTINA NAVARRO BADOS (55380)
 CARLOS MENDOZA CARPINTERO 
 
 ## Objetivos del trabajo
