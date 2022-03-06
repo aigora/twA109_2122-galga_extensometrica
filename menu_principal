@@ -28,11 +28,12 @@ int main() {
 				break;
 
 			default:
-			
+				printf("Opcion inexistente\n");
+		
 				break;
-				
+		}
+		
 	}while(opcion!=4);
 	
 
-	}
 }
