@@ -7,7 +7,7 @@ del dispositivo creado por una deformación, podemos pasar el valor de deformaci
 
 ALEJANDRO PALOMO DE LA PEÑA (55393) 
 CRISTINA NAVARRO BADOS (55380)
-CARLOS MENDOZA CARPINTERO 
+CARLOS MENDOZA CARPINTERO (55361)
 
 ## Objetivos del trabajo
 
