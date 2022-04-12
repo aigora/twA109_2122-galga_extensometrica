@@ -1,0 +1,35 @@
+#include  <LiquidCrystal.h>
+ 
+// AQUI SE CONFIGURAN LOS PINES PARA LA COMUNICACION CON LA PANTALLA
+LiquidCrystal lcd(,,,,,);
+ 
+void setup()
+{
+  //PANTALLA DE AXB DIMENSIONES
+  lcd.begin(2, 16);
+  // (0,0) DE LA PANTALLA Y BORRAR
+  lcd.clear();
+  // IMPRIMIR EN LA PRIMERA POSICION OPCIONALMENTE
+  lcd.print("");
+  // DELAY
+  delay(1000);
+}
+ 
+void loop()
+{
+  // ACTUALIZAR PANTALLA CADA SEGUNDO
+  lcd.clear();
+  // ENCABEZADO OPCIONAL
+  lcd.print(" ");
+ 
+  // LECTURA ANALOGICA EN PIN _
+  unsigned int val = analogRead(_);
+ 
+  // IMPRIMIR VALORES EN LA SEGUNDA LINEA, COMENZANDO POR EL VALOR DIRECTO DEL ADC
+  lcd.setCursor(0, 1);
+  lcd.print(val);
+
+ 
+  // ESPERAR UN SEGUNDO ANTES DE CONTUNUAR
+  delay (1000);
+}
