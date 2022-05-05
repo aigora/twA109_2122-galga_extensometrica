@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define LONGITUD 5
+
+
+int crear_fichero(int [],char []);
+int leer_fichero (int [],char []);
+
+int main(int argc, char *argv[])
+{
+ char filename[]="DatosPeso.dat";
+ int entrada[LONGITUD], salida[LONGITUD];
+ int exito,i;
+
+ printf ("Introduzca %d medidas en gramos:\n ",LONGITUD);
+ for (i=0;i<LONGITUD;i++)
+ 	scanf ("%d",&entrada[i]);
+
+ exito = crear_fichero (entrada,filename);
+ 
+ if (exito == 1) // Si se ha podido crear el fichero
+ {
+ 	exito=leer_fichero (salida,filename);
+ 	if (exito == 1) // Si se ha podido leer el fichero
+ 	{
+ 		printf ("Contenido del fichero: ");
+ 		for (i=0;i<LONGITUD;i++)
+			 printf ("%d ",salida[i]);
+ 	}
+ 	
+	 else
+ 		printf ("No se ha podido crear el fichero\n");
+ }
+ 
+ else
+ 	printf ("No se ha podido abrir el fichero\n");
+
+ printf ("\n");
+ system("PAUSE");
+ return 0;
+}
+
+int crear_fichero(int vector[],char filename[])
+{
+	
+ FILE *fp;
+ int resultado,i;
+
+ fp=fopen(filename,"wb"); // Se abre el fichero en modo escritura
+ if (fp==NULL)
+ 	resultado=0; // El fichero no ha podido crearse
+ 	
+ else
+ {
+	 resultado=1; // El fichero ha podido crearse
+	 fwrite (vector,sizeof(int),LONGITUD,fp); // Se escribe la cadena en el fichero
+	 fclose (fp); // Se cierra el fichero abierto
+ }
+ 
+ return resultado;
+}
+
+int leer_fichero(int vector[],char filename[])
+{
+ FILE *fp;
+ int resultado,i;
+
+ fp=fopen(filename,"rb"); // Se abre el fichero en modo lectura
+ 
+ if (fp==NULL)
+ 	resultado=0; // El fichero no ha podido abrirse
+ 	
+ else{
+	 resultado=1; // El fichero ha podido abrirse
+	 fread (vector,sizeof(int),LONGITUD,fp);
+	 fclose (fp); // Se cierra el fichero abierto
+ }
+ 
+ return resultado;
+}

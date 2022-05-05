@@ -1,0 +1,143 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+#define MAX_BUFFER 200
+
+//boceto no relevante para reservar memoria
+
+int reservar_memoria (void){
+	
+	printf("Cuantos elementos quiere reservar: ");
+	int longitud;
+	scanf ("%d", &longitud);
+	
+	float* valores = (float*) malloc(4000 * sizeof(float));
+	if (valores==NULL){
+		printf("No tienes tanta memoria\n");
+		cod_error = -1
+	}
+	else
+	int i;
+	for (i==0 ; i < longitud; i++){
+		valores[i]=500000;
+	}
+	printf ("Todo correcto\n");
+	free (valores);
+	return 0;
+}
+
+//funcion para leer el contenido de ficheros
+int leer_fichero (int argc, char** agrv){
+	
+	FILE *peso = fopen ("DatosPeso.dat", "r+");
+	if (!peso){
+		printf("No se pudo abrir el archivo");
+		return 1;
+	}
+	do {
+		int leido = fgetc(peso);
+		if (!feof(peso)){
+		printf ("%c", (char)leido);
+		}
+	}
+	while(!feof(peso));
+	
+	fclose (peso);
+	if (fclose(peso)!=0)
+		printf( "Problemas al cerrar el fichero\n" );
+
+/* Boceto de posible adicion al menu principal
+
+#define N 100
+
+typedef struct
+		{
+			float peso;
+			float fuerza;
+		}Valor;
+		
+	Valor valores[N];
+	int n = 0;	
+	
+	int main (void){
+		
+		Valor valores[N];
+		int n = 0;
+		int longitud = N;
+		
+		int resultado;
+		int opc;  // Opcion del menu principal seleccionada
+		
+		do // Bucle principal de la aplicaci?n
+		{
+			opc = menu_principal();
+			resultado = -1;
+			 
+			switch (opc)
+			{
+			case 1:	resultado = leer_datos(valor, &n,N);	break;
+			case 2: resultado = nuevos_datos(valor,n);break;
+			case 3: resultado = mostrar_datos(valor,n);break;
+			case 4: resultado = listado_datos(valor,n);break;
+			case 5:	break;
+			}
+			if (resultado == 0)
+				
+			
+			printf("\n\n");
+	} while (opc != 5);
+	return 0;
+		
+}*/
+	//Bocetos de diversos tipos de funciones para gestion de datos
+	
+	int Valor leer_datos(void) 
+	{
+		Valor valor;
+		char intro;
+		
+		printf("Peso: ");
+		scanf("%f", &valor.peso);
+		printf("Fuerza: ");
+		scanf("%f", &valor.fuerza);
+		
+		intro = getchar(); // Evitamos que se quede un '\n' en el buffer del teclado.
+		return valor;
+	}
+
+	int nuevos_datos(Valor u[], int* pn)
+	{
+		int cod_error, n = *pn;
+		if (n == N)
+		{
+		    printf("No es posible añadir datos\n");
+		    cod_error = -1;
+		}
+		else
+		{
+		    u[n]=leer_datos();
+		    n++; // Incrementamos el número actual de datos
+		    *pn = n; // Actualizamos el argumento por referencia
+		    cod_error = 0;
+			}
+		return cod_error;
+	}
+	
+	int mostrar_datos(Valor u)
+	{
+		printf("%f\n", u.peso);
+		printf("%f\n", u.fuerza);
+	}
+	
+	void listado_datos(Valor* valor, int n)
+	{
+		int i;
+		if (n == 0)
+		    printf("En este momento no hay datos\n");
+		else
+		{
+		    for (i = 0;i < n;i++)
+		    mostrar_datos(valor[i]);
+	}
+	}
