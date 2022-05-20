@@ -1,0 +1,55 @@
+                                                             FUNCION QUE CREA FICHERO-->
+
+void crear_fichero_txt(Serial* Arduino, char* port) {
+	FILE* fichero;
+	int i;
+	errno_t e;
+
+	int bytesRecibidos;
+	char mensaje_recibido[MAX_BUFFER];
+
+	if (Arduino->IsConnected())
+	{
+		bytesRecibidos = Enviar_y_Recibir(Arduino, "GET_PESO\n", mensaje_recibido);
+
+	e = fopen_s(&fichero, "Pesos.txt", "wt");
+	//wt--> modo escritura (t--> de texto)
+	//fopen_s devuelve un entero por eso utilizamos e
+	if (fichero == NULL)
+		printf("No se ha podido guardar los datos\n");
+	else {
+		for (i = 0; i < N; i++) {
+
+			fprintf(fichero,"Peso %d = %s\n", i+1,mensaje_recibido);
+			
+
+		}
+		fclose(fichero);
+	}
+}
+
+
+                                                           FUNCION QUE LEE EL FICHERO-->
+ int leer_fichero_txt(Serial * Arduino) {
+
+		FILE* fichero;
+		int n = 0;
+		errno_t e;
+		char* p;
+
+		e = fopen_s(&fichero, "Pesos.txt", "rt");
+		if (fichero == NULL) {
+			printf("El fichero esta vacio\n");
+		}
+		else {
+			fgets(mensaje_recibido, MAX_BUFFER, fichero);
+			while (!feof(fichero)) {
+				p = strchr(mensaje_recibido, '\n'); //sustituir el \n por un \0
+				*p = '\0';
+				fgets(mensaje_recibido, MAX_BUFFER, fichero);
+				n++;
+			}
+			fclose(fichero);
+		}
+		return n;
+	}
